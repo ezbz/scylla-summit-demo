@@ -79,7 +79,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.5/a
 - create service account
 
 ```
-kubectl apply -f eks-admin-service-account.yaml
+kubectl apply -f pulumi-eks/eks-admin-service-account.yaml
 ```
 
 - get a token for the dashboard login page
