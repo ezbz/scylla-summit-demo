@@ -8,7 +8,7 @@ Goal
 Stack
 =====
 * Scylla Enterprise 2020.1.4 (latest cloud version)
-* 3-node cluster composed of `i3en.16xlarge` instances in AWS
+* 3-node cluster composed of `i3en.12xlarge` instances in AWS
 * an EKS cluster for running docker-based `cassandra-stress` workload on the scylla cloud cluster with `22` kuberentes workers `c5.4xlarge`
 
 * cassandra stress launched with the following configuration (credentials and node ip address omitted)
