@@ -1,0 +1,3 @@
+name: eks-summit-demo
+runtime: nodejs
+description: EKS Bootstrapping
