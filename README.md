@@ -111,3 +111,9 @@ kubectl apply -f pulumi-eks/eks-admin-service-account.yaml
 ```
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}') 
 ```
+
+* access the dashboard via proxy
+
+```
+kubectl proxy
+```
