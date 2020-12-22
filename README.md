@@ -28,7 +28,12 @@ Process
 =======
 * Sign up to Scylla cloud 
 * Bootstrap a new cluster in BYOA mode
-* Set aws credentials for the connected account
+* Set aws credentials for the connected account and set the region to your ScyllaDB cloud cluster region, example:
+
+```
+export AWS_REGION=us-east-1
+```
+
 * Setup an eks cluster and worker nodes
 
 ```
@@ -46,7 +51,26 @@ echo $CLUSTER_ID
 * Import `kubeconfig` from EKS (this will override your current kubeconfig so back it up before `cp ~/.kube/config ~/.kube/config.bak`)
 
 ```
-aws eks --region us-east-1 update-kubeconfig --name $CLUSTER_ID
+aws eks --region $AWS_REGION update-kubeconfig --name $CLUSTER_ID
+```
+
+* Grab your CQL password from scylla cloud dashboard on the connect tab 
+
+```
+export CQL_PASSWORd=<YOUR_CQL_PASSWORD>
+```
+
+* Grab your cluster IPs from scylla cloud dashboard on the cluster details tab
+
+```
+export CLUSTER_IPS="<x.x.x.x,x.x.x.x,x.x.x.x>"
+```
+
+* Generate the workflow
+
+```
+cd k8s-cassandra-stress
+python generate-cassandra-stress-k8s.py --hosts "${CLUSTER_IPS}" --password ${CQL_PASSWORd}
 ```
 
 * Apply the worklow
